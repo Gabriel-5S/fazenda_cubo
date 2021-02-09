@@ -43,15 +43,32 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   _scan() async {
     String cameraScanResult = await scanner.scan();
-    // Scaffold.of(context).showSnackBar(
-    //   SnackBar(
-    //     content: Text(cameraScanResult),
-    //     backgroundColor: Theme.of(context).primaryColor,
-    //   ),
-    // );
+
+    AlertDialog alerta = AlertDialog(
+      title: Text("Rack 1"),
+      content: Text(cameraScanResult),
+      actions: <Widget>[
+        FlatButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text("Descartar")),
+        FlatButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text("Salvar")),
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alerta;
+      },
+    );
   }
 
   @override
@@ -74,31 +91,29 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               padding: EdgeInsets.all(10.0),
               child: Image.asset(
-              './images/fazenda_cubo.png',
-              fit: BoxFit.contain,
+                './images/fazenda_cubo.png',
+                fit: BoxFit.contain,
               ),
             ),
             Container(
               padding: EdgeInsets.all(10.0),
               child: RaisedButton(
-                child: Text('Produção do Dia'),
+                child: Text('Daily Production'),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  side: BorderSide(color: Colors.deepPurple)
-                ),
+                    borderRadius: BorderRadius.circular(12),
+                    side: BorderSide(color: Colors.deepPurple)),
                 onPressed: () {},
                 color: Colors.lightGreen[600],
                 textColor: Colors.white,
-             ),
+              ),
             ),
             Container(
               padding: EdgeInsets.all(10.0),
               child: RaisedButton(
-                child: Text('Atividades do Dia'),
+                child: Text('Daily Activities'),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  side: BorderSide(color: Colors.deepPurple)
-                ),
+                    borderRadius: BorderRadius.circular(12),
+                    side: BorderSide(color: Colors.deepPurple)),
                 onPressed: () {},
                 color: Colors.lightGreen[600],
                 textColor: Colors.white,

@@ -10,12 +10,15 @@ class QrcodeButton extends StatefulWidget {
 class _QrcodeButtonState extends State<QrcodeButton> {
   _scan() async {
     String cameraScanResult = await scanner.scan();
-    // Scaffold.of(context).showSnackBar(
-    //   SnackBar(
-    //     content: Text(cameraScanResult),
-    //     backgroundColor: Theme.of(context).primaryColor,
-    //   ),
-    // );
+
+    return AlertDialog(
+        title: Text("Raque 1"),
+        content: Text(cameraScanResult),
+        actions: <Widget>[
+          FlatButton(onPressed: null, child: Text("Salvar")),
+          FlatButton(onPressed: null, child: Text("Descartar")),
+        ],
+      );
   }
 
   @override
