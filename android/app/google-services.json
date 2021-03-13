@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1033075800793",
+    "project_id": "fazendacubo-7df18",
+    "storage_bucket": "fazendacubo-7df18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033075800793:android:8960b86693b8180fa59cc8",
+        "android_client_info": {
+          "package_name": "com.example.FAZENDA_CUBO"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033075800793-7b8bl7guovpenr55hvd2rsc45cfkj5o9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC84IUlx10tT1fVCzTsU8sQDBKCBCLYYcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033075800793-7b8bl7guovpenr55hvd2rsc45cfkj5o9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

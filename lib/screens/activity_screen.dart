@@ -1,3 +1,4 @@
+import 'package:FAZENDA_CUBO/models/verdura.dart';
 import 'package:FAZENDA_CUBO/screens/crop_screen.dart';
 import 'package:FAZENDA_CUBO/screens/seeding_screen.dart';
 import 'package:FAZENDA_CUBO/screens/task_screen.dart';
@@ -7,9 +8,10 @@ import '../models/local.dart';
 
 class ActivityScreen extends StatelessWidget {
   Local local;
+  Verdura verdura;
 
-  ActivityScreen(this.local);
-
+  ActivityScreen(this.local, this.verdura);
+  //TODO Incluir passagem do QR code para a tela Seeding Screen()
   _selectActivity(BuildContext context, String task) {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) {

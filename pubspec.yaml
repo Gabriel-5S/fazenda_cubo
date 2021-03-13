@@ -24,8 +24,11 @@ dependencies:
   flutter:
     sdk: flutter
   qrscan: ^0.2.21
-  image_picker: ^0.6.7+21
+  image_picker: ^0.7.2+1
   path_provider: ^1.1.0
+  firebase_core: ^1.0.0
+  cloud_firestore: ^1.0.0
+  provider: 4.3.2+2
 
 
   # The following adds the Cupertino Icons font to your application.
