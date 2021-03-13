@@ -8,16 +8,15 @@ import '../models/local.dart';
 
 class ActivityScreen extends StatelessWidget {
   Local local;
-  Verdura verdura;
 
-  ActivityScreen(this.local, this.verdura);
+  ActivityScreen(this.local);
   //TODO Incluir passagem do QR code para a tela Seeding Screen()
   _selectActivity(BuildContext context, String task) {
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) {
         switch (task) {
           case "planta":
-            return SeedingScreen();
+            return SeedingScreen(local.id);
           case "colhe":
             return CropScreen();
           case "tarefa":

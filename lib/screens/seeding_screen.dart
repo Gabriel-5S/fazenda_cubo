@@ -5,18 +5,18 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class SeedingScreen extends StatefulWidget {
+  String qrcode;
+  SeedingScreen(this.qrcode);
+
   @override
   _SeedingScreenState createState() => _SeedingScreenState();
 }
 
 class _SeedingScreenState extends State<SeedingScreen> {
-  Verdura verdura;
-
   final _qtdFocusNode = FocusNode();
   final _verduraFocusNode = FocusNode();
   final _form = GlobalKey<FormState>();
 
-  int _QRcode;
   String _tipoVerdura;
   int _qtdVerdura;
 
@@ -24,8 +24,8 @@ class _SeedingScreenState extends State<SeedingScreen> {
 
   Future<void> _createVerdura(BuildContext context) async {
     final database = Provider.of<Database>(context, listen: false);
-    final qrcode = await database.createVerduras(
-        Verdura(qrcode: '1', tipo: 'alface Crespo', dataHorario: 10));
+    final qrcode = await database.createVerduras(Verdura(
+        qrcode: 'widget.qrcode', tipo: _tipoVerdura, qtdVerdura: _qtdVerdura));
   }
 
   @override
@@ -53,7 +53,7 @@ class _SeedingScreenState extends State<SeedingScreen> {
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_verduraFocusNode);
                 },
-                onSaved: (value) => _QRcode = int.tryParse(value),
+                initialValue: 'widget.qrcode',
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Verdura'),

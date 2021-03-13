@@ -1,4 +1,3 @@
-import 'package:FAZENDA_CUBO/models/verdura.dart';
 import 'package:flutter/material.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
 
@@ -15,13 +14,11 @@ class _QrcodeButtonState extends State<QrcodeButton> {
     String cameraScanResult = await scanner.scan();
 
     Local local = new Local();
-    Verdura verdura = new Verdura();
-    verdura.qrcode = cameraScanResult;
     local.id = cameraScanResult;
 
     Navigator.of(context).push(
       MaterialPageRoute(builder: (_) {
-        return ActivityScreen(local, verdura);
+        return ActivityScreen(local);
       }),
     );
   }

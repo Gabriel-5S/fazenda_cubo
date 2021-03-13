@@ -32,8 +32,8 @@ class FirestoreDatabase implements Database {
           return data != null
               ? Verdura(
                   qrcode: data['qrcode'],
-                  tipo: data['name'],
-                  dataHorario: data['ratePerHour'],
+                  tipo: data['tipo'],
+                  qtdVerdura: data['qtdVerdura'],
                 )
               : null;
         },
