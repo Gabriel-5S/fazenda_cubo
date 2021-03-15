@@ -35,7 +35,13 @@ class FirestoreDatabase implements Database {
                   tipo: data['tipo'],
                   qtdVerdura: data['qtdVerdura'],
                 )
-              : null;
+              //: null;
+              //TODO acertar esse ponto
+              : Verdura(
+                  qrcode: data['qrcode'],
+                  tipo: data['tipo'],
+                  qtdVerdura: data['qtdVerdura'],
+                );
         },
       ).toList(), //Map devolve um iterável é preciso o .toList()
     );

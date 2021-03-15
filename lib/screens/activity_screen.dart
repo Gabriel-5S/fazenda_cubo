@@ -24,7 +24,11 @@ class ActivityScreen extends StatelessWidget {
               child: SeedingScreen(local.id),
             );
           case "colhe":
-            return CropScreen();
+            return Provider<Database>(
+              create: (_) => FirestoreDatabase(
+                  uid: "Aqui Vai entrar o login de quem acessar o DB"),
+              child: CropScreen(),
+            );
           case "tarefa":
             return TaskScreen();
         }
