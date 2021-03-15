@@ -23,9 +23,14 @@ class _SeedingScreenState extends State<SeedingScreen> {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   Future<void> _createVerdura(BuildContext context) async {
+    final form = _form.currentState;
+    //salvando formulário
+    form.save();
     final database = Provider.of<Database>(context, listen: false);
-    final qrcode = await database.createVerduras(Verdura(
-        qrcode: 'widget.qrcode', tipo: _tipoVerdura, qtdVerdura: _qtdVerdura));
+    final qrcode = await database.createVerduras(
+      Verdura(
+          qrcode: widget.qrcode, tipo: _tipoVerdura, qtdVerdura: _qtdVerdura),
+    );
   }
 
   @override
@@ -53,7 +58,7 @@ class _SeedingScreenState extends State<SeedingScreen> {
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_verduraFocusNode);
                 },
-                initialValue: 'widget.qrcode',
+                initialValue: widget.qrcode,
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: 'Verdura'),

@@ -2,7 +2,9 @@ import 'package:FAZENDA_CUBO/models/verdura.dart';
 import 'package:FAZENDA_CUBO/screens/crop_screen.dart';
 import 'package:FAZENDA_CUBO/screens/seeding_screen.dart';
 import 'package:FAZENDA_CUBO/screens/task_screen.dart';
+import 'package:FAZENDA_CUBO/services/database.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../models/local.dart';
 
@@ -16,7 +18,11 @@ class ActivityScreen extends StatelessWidget {
       MaterialPageRoute(builder: (_) {
         switch (task) {
           case "planta":
-            return SeedingScreen(local.id);
+            return Provider<Database>(
+              create: (_) => FirestoreDatabase(
+                  uid: "Aqui Vai entrar o login de quem acessar o DB"),
+              child: SeedingScreen(local.id),
+            );
           case "colhe":
             return CropScreen();
           case "tarefa":
